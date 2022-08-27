@@ -1,4 +1,5 @@
-
+# BST
+```Java
 void BST(TreeNode root, int target) {
     if (root.val == target)
         // Find the target Do something
@@ -7,3 +8,4 @@ void BST(TreeNode root, int target) {
     if (root.val > target)
         BST(root.left, target);
 }
+```
