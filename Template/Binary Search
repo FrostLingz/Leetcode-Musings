@@ -55,4 +55,5 @@ int right_bound(int[] nums, int target) {
     if (left - 1 < 0) return -1;
     // 判断一下 nums[left] 是不是 target
     return nums[left - 1] == target ? (left - 1) : -1;
-}```
+}
+```
