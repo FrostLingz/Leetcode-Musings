@@ -18,9 +18,6 @@ int binary_search(int[] nums, int target) {
     // 直接返回
     return -1;
 }
-```
-
-```java
 
 int left_bound(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
@@ -40,9 +37,8 @@ int left_bound(int[] nums, int target) {
     if (left == nums.length) return -1;
     // 判断一下 nums[left] 是不是 target
     return nums[left] == target ? left : -1;
-}```
+}
 
-```java
 
 int right_bound(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
