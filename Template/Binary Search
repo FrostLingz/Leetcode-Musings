@@ -1,6 +1,7 @@
 # Binary Search
 
-```Java
+``` java
+
 int binary_search(int[] nums, int target) {
     int left = 0, right = nums.length - 1; 
     while(left <= right) {
@@ -56,4 +57,5 @@ int right_bound(int[] nums, int target) {
     // 判断一下 nums[left] 是不是 target
     return nums[left - 1] == target ? (left - 1) : -1;
 }
+
 ```
