@@ -16,3 +16,14 @@ for 状态1 in 状态1的所有取值：
         for ...
             dp[状态1][状态2][...] = 求最值(选择1，选择2...)
           ```
+
+### Buy and sell stock
+```Java
+base case：
+dp[-1][...][0] = dp[...][0][0] = 0
+dp[-1][...][1] = dp[...][0][1] = -infinity
+
+状态转移方程：
+dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
+dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
+```
