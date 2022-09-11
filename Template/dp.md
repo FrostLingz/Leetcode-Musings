@@ -95,5 +95,4 @@ int maxProfit_k_inf(int[] prices, int cooldown, int fee) {
         // 同时考虑 cooldown 和 fee
         dp[i][1] = Math.max(dp[i - 1][1], dp[i - cooldown - 1][0] - prices[i] - fee);
     }
-    return dp[n - 1][0];
-    ```
+    return dp[n - 1][0]; ```
