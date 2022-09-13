@@ -28,7 +28,7 @@ while (right < txt.length()) {
     windowHash = R * windowHash + txt[right];
     right++;
 
-    // 当子串的长度达到要求
+    // 当子串的长度达到要求时
     if (right - left == L) {
         // 根据哈希值判断窗口中的子串是否匹配模式串 pat
         if (patHash == windowHash) {
