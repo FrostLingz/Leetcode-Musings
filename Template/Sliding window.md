@@ -20,7 +20,7 @@ void slidingWindow(string s) {
         
         // 判断左侧窗口是否要收缩
         while (window needs shrink) {
-            // d 是将移出窗口的字符
+            // d 是即将移出窗口的字符
             char d = s[left];
             // 缩小窗口
             left++;
