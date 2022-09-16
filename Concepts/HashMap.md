@@ -21,7 +21,9 @@ class Main {
     // 输出更新后的 HashMap
     System.out.println("Updated HashMap: " + prices);
     }
-}
+} 
+
+
 Output:
 HashMap: {Pant=150, Bag=300, Shoes=200}
 Price of Shirt: 100
@@ -50,6 +52,8 @@ class Main {
         System.out.println("Updated HashMap: " + countries);
     }
 }
+
+
 Output:
 HashMap: {Madrid=Spain, Canberra=Australia, Washington=America}
 Washington: America/USA
@@ -81,6 +85,8 @@ class Main {
         System.out.println("Updated Languages: " + sites);
     }
 }
+
+
 Output:
 sites HashMap: {1=Google, 2=Runoob, 3=Taobao}
 Updated sites HashMap: {1=Google, 2=Runoob, 3=Taobao, 4=Weibo}
