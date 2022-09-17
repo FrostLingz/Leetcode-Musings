@@ -21,7 +21,8 @@ class Main {
     // 输出更新后的 HashMap
     System.out.println("Updated HashMap: " + prices);
     }
-} ```
+}
+```
 
 ```java
 Output:
