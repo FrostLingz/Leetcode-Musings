@@ -37,7 +37,7 @@ while (right < txt.length()) {
             return left;
         }
         
-        // 缩小窗口，移出字符（删除最高位数字）
+        // 缩小窗口，移出字符（删除最高位的数字）
         windowHash = windowHash - txt[left] * RL;
         left++;
     }
