@@ -79,7 +79,7 @@ class Main {
         System.out.println("sites HashMap: " + sites);
        
 
-        // HashMap 不存在该key
+        // HashMap 中不存在该key
         sites.putIfAbsent(4, "Weibo");
 
         // HashMap 中存在 Key
