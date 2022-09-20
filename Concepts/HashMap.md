@@ -124,7 +124,7 @@ Map<String, String> map = new HashMap<String, String>();
    System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());  
   }  
   
-  //第四种：只能获取values,不能获取key 
+  //第四种：只能获取values, 不能获取key 
   System.out.println("通过Map.values()遍历所有的value，但不能遍历key");  
   for (String v : map.values()) {  
    System.out.println("value= " + v);  
