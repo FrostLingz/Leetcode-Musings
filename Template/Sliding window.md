@@ -6,6 +6,7 @@ void slidingWindow(string s) {
     unordered_map<char, int> window;
     
     int left = 0, right = 0;
+    // for-loop also works
     while (right < s.size()) {
         // c 是将移入窗口的字符
         char c = s[right];
