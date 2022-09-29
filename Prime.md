@@ -31,6 +31,13 @@ boolean isPrime(int n) {
 > 12 = 4 × 3   
 > 12 = 6 × 2   
 
+```java
+boolean isPrime(int n) {
+    for (int i = 2; i * i <= n; i++)
+        ...
+}
+```
+
 #### 高效实现 countPrimes
 ```java
 int countPrimes(int n) {
