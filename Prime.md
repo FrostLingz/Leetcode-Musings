@@ -39,6 +39,8 @@ boolean isPrime(int n) {
 ```
 
 #### 高效实现 countPrimes
+> 首先从 2 开始，我们知道 2 是一个素数，那么 2 × 2 = 4, 3 × 2 = 6, 4 × 2 = 8… 都不可能是素数了。  
+> 然后我们发现 3 也是素数，那么 3 × 2 = 6, 3 × 3 = 9, 3 × 4 = 12… 也都不可能是素数了。
 ```java
 int countPrimes(int n) {
     boolean[] isPrim = new boolean[n];
