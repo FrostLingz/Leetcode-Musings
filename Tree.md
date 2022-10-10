@@ -34,3 +34,61 @@
 
 二叉树的构造问题一般都是使用「分解问题」的思路：构造整棵树 = **根节点 + 构造左子树 + 构造右子树**。  
 想办法确定根节点的值，把根节点做出来，然后递归构造左右子树即可。
+
+### LCA(Lowest Common Ancestor)
+[二叉树的最近公共祖先](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_62987959e4b01a4852072fa5/1)
+
+先看一个find方法，在一颗二叉树中寻找值为 val1 或 val2 的节点。
+
+ ```java
+ // 定义：在以 root 为根的二叉树中寻找值为 val1 或 val2 的节点
+TreeNode find(TreeNode root, int val1, int val2) {
+    // base case
+    if (root == null) {
+        return null;
+    }
+    // 前序位置，看看 root 是不是目标值
+    if (root.val == val1 || root.val == val2) {
+        return root;
+    }
+    // 去左右子树寻找
+    TreeNode left = find(root.left, val1, val2);
+    TreeNode right = find(root.right, val1, val2);
+    // 后序位置，已经知道左右子树是否存在目标值
+
+    return left != null ? left : right;
+}
+```
+[236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)  
+给你输入一棵不含重复值的二叉树，以及存在于树中的两个节点 p 和 q，请你计算 p 和 q 的最近公共祖先节点。
+ > 如果一个节点能够在它的**左右子树**中分别找到 p 和 q，则该节点为 LCA 节点  
+ > 第一种情况：在 find 函数的后序位置，如果发现 left 和 right 都非空，就说明当前节点是 LCA 节点   
+ > 第二种情况：在 find 函数的前序位置，如果找到一个值为 val1 或 val2 的节点则直接返回   
+ > 这就要用到之前实现的 find 函数了，只需在后序位置添加一个判断逻辑，即可改造成寻找最近公共祖先的解法代码
+ 
+ ```java
+ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    return find(root, p.val, q.val);
+}
+
+// 在二叉树中寻找 val1 和 val2 的最近公共祖先节点
+TreeNode find(TreeNode root, int val1, int val2) {
+    if (root == null) {
+        return null;
+    }
+    // 前序位置
+    if (root.val == val1 || root.val == val2) {
+        // 如果遇到目标值，直接返回
+        return root;
+    }
+    TreeNode left = find(root.left, val1, val2);
+    TreeNode right = find(root.right, val1, val2);
+    // 后序位置，已经知道左右子树是否存在目标值
+    if (left != null && right != null) {
+        // 当前节点是 LCA 节点
+        return root;
+    }
+
+    return left != null ? left : right;
+}
+ ```
