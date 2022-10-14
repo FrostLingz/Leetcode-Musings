@@ -1,4 +1,13 @@
 # Backtrack
+回溯算法和我们常说的 DFS 算法非常类似，本质上就是一种**暴力穷举**算法。回溯算法和 DFS 算法的细微差别是：回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」  
+
+解决一个回溯问题，实际上就是一个决策树的遍历过程，站在回溯树的一个节点上，你只需要思考 3 个问题：  
+
+1、**路径**：也就是已经做出的选择。  
+
+2、**选择列表**：也就是你当前可以做的选择。  
+
+3、**结束条件**：也就是到达决策树底层，无法再做选择的条件。  
 
 回溯法，一般可以解决如下几种问题：
 
@@ -30,45 +39,45 @@ def backtrack(path, selection list):
     }
   ```
 [回溯秒杀排列-组合-子集](https://labuladong.github.io/algo/1/9/)
-## Combination/Subset/Permutation
-### Form I. Elements are non-reselectable, i.e. the elements in nums are unique and each element can only be used at most once
+## 排列-组合-子集
+### 形式一、元素无重不可复选，即 nums 中的元素都是唯一的，每个元素最多只能被使用一次。
 ```Java
-/* Combination/Subset */
+/* 组合/子集问题回溯算法框架 */
 void backtrack(int[] nums, int start) {
-    // backtrack
+    // 回溯算法标准框架
     for (int i = start; i < nums.length; i++) {
-        // make a selection
+        // 做选择
         track.addLast(nums[i]);
-        // Note that the parameter i + 1 ensures that each element will only be used once
+        // 注意参数
         backtrack(nums, i + 1);
-        // withdraw selection
+        // 撤销选择
         track.removeLast();
     }
 }
 
-/* Permutation */
+/* 排列问题回溯算法框架 */
 void backtrack(int[] nums) {
     for (int i = 0; i < nums.length; i++) {
-        // Pruning
+        // 剪枝逻辑
         if (used[i]) {
             continue;
         }
-        // make a selection
+        // 做选择
         used[i] = true;
         track.addLast(nums[i]);
 
         backtrack(nums);
-        // withdraw selection
+        // 撤销选择
         track.removeLast();
         used[i] = false;
     }
 }
+
 ```
 
-### Form II. Elements can be re-elected and not re-selected, i.e. elements in nums can be duplicated and each element can only be used at most once, the key to this is sorting and pruning
+### 形式二、元素可重不可复选，即 nums 中的元素可以存在重复，每个元素最多只能被使用一次，其关键在于排序和剪枝。
 
 ```Java
-//数组排序 方便剪枝去重
 Arrays.sort(nums);
 /* 组合/子集问题回溯算法框架 */
 void backtrack(int[] nums, int start) {
@@ -87,6 +96,7 @@ void backtrack(int[] nums, int start) {
     }
 }
 
+
 Arrays.sort(nums);
 /* 排列问题回溯算法框架 */
 void backtrack(int[] nums) {
@@ -96,23 +106,24 @@ void backtrack(int[] nums) {
             continue;
         }
         // 剪枝逻辑，固定相同的元素在排列中的相对位置
-        // 对于[2, 2'] 对于2'来说，只有2用过(used[i - 1])，才可以选择
         if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
             continue;
         }
         // 做选择
         used[i] = true;
         track.addLast(nums[i]);
+
         backtrack(nums);
         // 撤销选择
         track.removeLast();
         used[i] = false;
     }
 }
+
 ```
 
 
-### Form 3, elements are non-reselectable, i.e. the elements in nums are unique and each element can be used several times
+### 形式三、元素无重可复选，即 nums 中的元素都是唯一的，每个元素可以被使用若干次，只要删掉去重逻辑即可。
 ```Java
 /* 组合/子集问题回溯算法框架 */
 void backtrack(int[] nums, int start) {
@@ -127,6 +138,7 @@ void backtrack(int[] nums, int start) {
     }
 }
 
+
 /* 排列问题回溯算法框架 */
 void backtrack(int[] nums) {
     for (int i = 0; i < nums.length; i++) {
@@ -137,4 +149,5 @@ void backtrack(int[] nums) {
         track.removeLast();
     }
 }
+
 ```
