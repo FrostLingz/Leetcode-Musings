@@ -45,7 +45,7 @@ class Main {
         countries.put("Madrid", "Spain");
         System.out.println("HashMap: " + countries);
 
-        //合并 key为 Washington的映射
+        //合并key为 Washington的映射
         String returnedValue = countries.merge("Washington", "USA", (oldValue, newValue) -> oldValue + "/" + newValue);
         System.out.println("Washington: " + returnedValue);
 
