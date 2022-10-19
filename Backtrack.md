@@ -40,6 +40,9 @@ def backtrack(path, selection list):
   ```
 [回溯秒杀排列-组合-子集](https://labuladong.github.io/algo/1/9/)
 ## 排列-组合-子集
+
+**排列组合问题，都是收集树的叶子节点，而子集问题是找树的所有节点！** 所以排列/组合问题往往都有当track.size()== x ; return; 而子集往往不需要return。
+
 ### 形式一、元素无重不可复选，即 nums 中的元素都是唯一的，每个元素最多只能被使用一次。
 ```Java
 /* 组合/子集问题回溯算法框架 */
