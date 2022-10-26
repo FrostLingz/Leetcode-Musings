@@ -44,6 +44,7 @@ private List<List<Integer>> nSum(int[] nums, int n, int start, int target) {
             }
         }
     } else {
+        // n > 2 时，递归计算 (n-1)Sum 的结果
         int i = start;
         while (i < len) {
             int now = nums[i];
