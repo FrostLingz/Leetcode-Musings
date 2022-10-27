@@ -1,4 +1,4 @@
-# Stream in Java
+# Stream in Java8
 
 ### Intermediate Operations:
 
