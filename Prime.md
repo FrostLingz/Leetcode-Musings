@@ -83,7 +83,7 @@ for (int j = i * i; j < n; j += i)
 ```
 #### 完整代码
 
-> 这个算法有个名字，叫做 Sieve of Eratosthenes。
+> 这个算法叫做 Sieve of Eratosthenes。
 ```java
 int countPrimes(int n) {
     boolean[] isPrim = new boolean[n];
